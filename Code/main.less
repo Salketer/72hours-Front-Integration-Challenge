@@ -1,0 +1,102 @@
+@import "/client/lib/bootstrap/custom.bootstrap.import.less";
+
+.border-radius(@radius: 5px) {
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	border-radius: @radius;
+}
+
+body {
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+	@media (min-width: @screen-sm-min) {
+		background-image: url('img/background.jpg');
+	}
+
+}
+.bg-muted{
+	background-color:@text-muted;
+}
+body > .container {
+	background-color: rgba(255, 255, 255, 0.9);
+}
+
+@media (min-width: @screen-md-min) {
+	.barcol, .bargraph {
+		width: 110px;
+	}
+}
+th{
+	font-size:12px;
+}
+.bg-danger, .bg-info, .bg-success, .bg-warning,.bg-muted {
+	color: white;
+}
+
+.vertical-padding {
+	padding: 8px 0 12px;
+}
+.margin-top16{
+	margin-top:16px;
+}
+.detail-box{
+	height:150px;
+}
+.half-detail-box{
+	height:75px;
+}
+.modal-body{
+	text-align:left;
+	max-height:50vh;
+	overflow-y:auto;
+}
+//details
+.details_box {
+	.border-radius(15px);
+	// for the border radius to hide corners of contained elements.
+	overflow: hidden;
+	.details_box_content {
+		& > div {
+			//border: 1px solid white;
+			padding-top: 10px;
+		}
+
+		.bargraph {
+			border: 2px solid white;
+			background-color: transparent;
+			padding: 2px;
+			height: auto;
+			width: auto;
+			margin:4px 0 12px;
+		}
+		.bargraph_value {
+			height: 10px;
+			background-color: white;
+		}
+		& .bg-info,& .bg-muted{
+			.bargraph_value{
+				background-color: rgba(255,255,255,0.5);
+			}
+			.bargraph{
+				border-color:rgba(255,255,255,0.5);
+			}
+		}
+	}
+}
+th[data-orderby]{
+	cursor:pointer;
+}
+
+#reset{
+	position:absolute;
+	z-index:10;
+	top:0;
+	right:0;
+	cursor:pointer;
+	background-color:red;
+	padding:5px;
+	color:white;
+	font-weight:bold;
+	border-bottom-left-radius: 10px;
+}

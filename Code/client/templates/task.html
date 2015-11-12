@@ -1,0 +1,91 @@
+<template name="task">
+    <tr {{row_atts}}>
+        <td>
+            <span class="task_type_icon">{{>icon type_icon}}</span>
+            {{#if has_details}}
+                <a href="{{url}}" role="button">
+                    {{label}}
+                </a>
+            {{else}}
+                {{label}}
+            {{/if}}
+        </td>
+        <td>{{owner}}</td>
+        <td class="hidden-xs" title="{{full_start}}">{{start}}</td>
+        <td class="hidden-xs">{{status}}</td>
+        <td>{{>bar_graph metrics}}</td>
+        <td>{{>bar_graph build}}</td>
+        <td>{{>bar_graph unit}}</td>
+        <td>{{>bar_graph functional}}</td>
+    </tr>
+    <tr class="details">
+        {{#if is_active}}
+            <td colspan="8">
+                <div class="content row">
+                    <div class="col-xs-5 col-md-2 text-center pointer" data-toggle="modal" data-target="#exampleModal">
+                        <h4 class="{{action_status_class metrics}}">Metrics</h4>
+                        {{>metrics_details}}
+                    </div>
+                    <div class="col-xs-5 col-md-2 text-center pointer" data-toggle="modal" data-target="#exampleModal">
+                        <h4 class="{{action_status_class build}}">Build</h4>
+                        {{>build_details}}
+                    </div>
+                    <div class="col-xs-5 col-md-2 text-center pointer" data-toggle="modal" data-target="#exampleModal">
+                        <h4 class="{{action_status_class unit}}">Unit Test</h4>
+                        {{>test_results unit}}
+                    </div>
+                    <div class="col-xs-5 col-md-2 text-center pointer" data-toggle="modal" data-target="#exampleModal">
+                        <h4 class="{{action_status_class functional}}">Functional Test</h4>
+                        {{>test_results functional}}
+                    </div>
+                    <div class="col-xs-10 col-md-2 text-center">
+                        <h4>Result</h4>
+                        {{>task_result}}
+                    </div>
+
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">{{label}}'s details</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <ul>
+                                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                                        <li class="text-success"><strong>Nunc non velit vel nibh efficitur dignissim.</strong></li>
+                                        <li>Integer in nunc egestas, convallis dolor ac, ultrices mi.</li>
+                                        <li>Curabitur varius velit nec facilisis aliquet.</li>
+                                        <li>In sed odio vitae nisi ultricies ultrices.</li>
+                                        <li>Sed vitae augue vehicula, ultricies sem quis, blandit sem.</li>
+                                        <li class="text-danger"><strong>Nunc non velit vel nibh efficitur dignissim.</strong></li>
+                                        <li>Nunc malesuada est non tortor rutrum, nec tristique sapien tempus.</li>
+                                        <li>Nulla convallis eros vitae est varius condimentum.</li>
+                                        <li class="text-warning"><strong>Maecenas vel nisl in libero laoreet blandit.</strong></li>
+                                        <li>Duis non tortor quis felis consequat rhoncus.</li>
+                                        <li>Praesent imperdiet tortor eu neque iaculis, eget dictum nisl congue.</li>
+                                        <li>Maecenas vel lectus fermentum, consectetur velit a, sodales sapien.</li>
+                                        <li>Nam sollicitudin est sit amet mauris sagittis dictum.</li>
+                                        <li>Nunc ut nibh eu mauris malesuada sollicitudin et et elit.</li>
+                                        <li>Duis fermentum risus sed dictum tempor.</li>
+                                        <li class="text-danger"><strong>Donec ut sem sed elit tincidunt congue.</strong></li>
+                                        <li>Suspendisse aliquam ante sed ullamcorper venenatis.</li>
+                                        <li>Quisque id risus ut sapien efficitur gravida quis euismod urna.</li>
+                                        <li>Pellentesque vel ante tincidunt, congue orci sit amet, feugiat velit.</li>
+                                    </ul>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary pull-left" title="Share">{{>icon 'share'}}</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </td>
+        {{/if}}
+    </tr>
+
+</template>

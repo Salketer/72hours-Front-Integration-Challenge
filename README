@@ -1,0 +1,64 @@
+=Cross|over Senior Front End Web Developer=
+
+==Project analysis==
+The specifications of the project are simple, yet a bit vague. It seems to be a tool to follow the steps of a Continuous Integration process, 
+so all the decisions must be taken having developers and system administrators as target users. The tool is a productivity tool, it must remain
+simple and fast.
+
+To take on the challenge, I have used the MeteorJS platform as it provides a very fast to setup environment that will support all the required aspects of the project.
+*Server-Side and Client-Side MongoDB:
+	MongoDB will be used as data source for our mocked-up data. It will be very useful to use it for sorting and to display the result of some basic actions.
+
+*Automatic build of Less files:
+	Less will be used in conjunction with Bootstrap be able to deliver a nice looking application that will work on the required IE8 and mobiles.
+
+*Integrates its own flavor of Spacebars (called Blaze) as templating engine:
+	Although Angular is preferred as templating engine for this project, Blaze is a lot less cumbersome and will output a more human-readable HTML source.
+
+===Features (Required)===
+Support for IE8 and above.
+The list should display two different task types "Firewall" and "Build". As there are no specific definition of those two types they will be treated as similar in all points. 
+Only the builds have no owner.
+Each task should be easily contrasted by their statuses ('Pending','Running','Rejected','Complete','Accepted'). 
+The green status of a build is "Complete", while the green status for a firewall is "Accepted".
+Each task should be clickable to show more details about it (don't allow click if there is nothing to show).
+The details should use the same color code as the task statuses.
+On the details, we should provide extra action/information depending on the result of the completed task.
+Open a pop-over for the details about every 4 aspects of a task.
+
+===Features (Bonus/Wished)===
+Very good support for mobile.
+Allow the user to sort the list by clicking the headers of the task table.
+Allow the user to change task using the up and down arrows. (one task needs to be open first)
+
+===Work analysis===
+I have done my best to implement all the features that was required. 
+I have also wanted to add the features about a sort as it is, in my opinion, a must in every table of this kind.
+I have implemented every task state that I thought would be possible.
+I took the decision to display the Tests results using a bar chart instead of a pie chart mainly from time constraints as IE8 does not support SVG and could not afford the time to search for other solutions.
+The "Find issue" button effectively display a list of issues (filled with lorem ipsum).
+The "Deploy" button works as it should, it changes the status to a new "Deployed" state and lowers the task visibility.
+The "Merged Build" button has been treated as a shortcut to opening the related Build task, and will behave like so.
+The display of time and dates have been changed from absolute to relative, but hovering on them provides the full dates.
+
+I have used a global object "CIB" for Continuous Integration Board to store redundent functions and constants. 
+This will be the main file used to interface with the back-end later.
+
+===Conclusion===
+Although I have been able to finish all the required tasks, I feel like some more work could be done to polish the code with some refactors.
+I have also left some TODOs the same way I do when working in a real team. This has been a fun assignment.
+
+==Running the project==
+===Ready-to-go hosted project===
+For your convenience, I have used the test environment provided by the Meteor team to deploy the application.
+You can directly access the application at http://mgp-co-test.meteor.com/
+The container it lives in might need to be start, if you get the Meteor's error page, please wait.
+
+===Running it locally===
+Since the project is running on the MeteorJS platform, it needs to be installed before running.
+To install the MeteorJS platform, please follow the instructions at https://www.meteor.com/install
+
+Once Meteor is installed, open a Terminal/CLI and navigate to the Code folder. 
+Run the command "meteor" to start building the application.
+Once it the application is running, meteor will be serving the project at http://localhost:3000/
+

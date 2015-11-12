@@ -1,0 +1,39 @@
+<head>
+    <title>My CI Dashboard</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+</head>
+
+<body>
+
+<div id="reset">
+    RESET
+</div>
+
+<div class="container">
+    <h1>My CI Dashboard</h1>
+    {{>app_body}}
+</div>
+</body>
+
+<template name="bar_graph">
+    {{#if homemade}}
+        <div class="bargraph"><div class="bargraph_value {{class}}" style="width:{{width}}"></div></div>
+    {{else}}
+        <div class="progress">
+            <div class="progress-bar {{class}}" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: {{width}}">
+                <span class="sr-only">{{width}}</span>
+            </div>
+        </div>
+    {{/if}}
+
+</template>
+
+<template name="icon">
+    {{! We are returning unicode characters, triple mustache needed or it gets escaped}}
+    <i class="fa {{classes}}">{{{code}}}</i>
+</template>

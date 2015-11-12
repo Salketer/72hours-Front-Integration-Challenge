@@ -1,0 +1,21 @@
+<Template name="app_body">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th data-orderby="label">Changelist / Build {{>icon caret.label}}</th>
+            <th data-orderby="owner">Owner {{>icon caret.owner}}</th>
+            <th data-orderby="start" class="hidden-xs">Time Started {{>icon caret.start}}</th>
+            <th data-orderby="status" class="hidden-xs">State {{>icon caret.status}}</th>
+            <th class="barcol"><span class="hidden-sm hidden-xs">Metrics</span><span class="hidden-md hidden-lg" title="Metrics">M</span></th>
+            <th class="barcol"><span class="hidden-sm hidden-xs">Build</span><span class="hidden-md hidden-lg" title="Build">B</span></th>
+            <th class="barcol"><span class="hidden-sm hidden-xs">Unit Test</span><span class="hidden-md hidden-lg" title="Unit Test">U</span></th>
+            <th class="barcol"><span class="hidden-sm hidden-xs">Functional Test</span><span class="hidden-md hidden-lg" title="Functional Test">F</span></th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each tasks}}
+            {{>task}}
+        {{/each}}
+        </tbody>
+    </table>
+</Template>

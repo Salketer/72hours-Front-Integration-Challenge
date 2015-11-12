@@ -1,0 +1,76 @@
+@import "/client/lib/bootstrap/custom.bootstrap.import.less";
+
+.table > tbody > tr.details > td {
+	border-top: none;
+}
+
+.table.table-hover > tbody > tr.active, .table > tbody > tr:hover, .table > tbody > tr.active + tr.details {
+	//left out border color, as it automatically will take font color.
+	border-left: 10px solid;
+	& > td {
+		//A bit sad but bootstrap darkens the color of td.active:hover which I do not want.
+		background-color: @table-bg-active;
+	}
+}
+
+.table > tbody > tr.details {
+	background-color: @table-bg-hover;
+}
+
+.table > tbody > tr {
+	border-left: 10px solid transparent;
+	a {
+		color: inherit;
+		text-decoration: underline;
+	}
+}
+
+//add this var to ease the loop.
+@state-muted-text: @text-muted;
+.pointer{
+	cursor: pointer;
+}
+//We'll loop through the statuses and give the following TR of those lines the right border color.
+@status: muted, info, danger, warning, success;
+.background-fixes(length(@status));
+.background-fixes(@n,@i:1) when (@i=<@n) {
+	@status_name: extract(@status,@i);
+	.table > tbody > tr.text-@{status_name} + tr.details {
+		@status_var: 'state-@{status_name}-text';
+		border-left-color: @@status_var;
+	}
+	.background-fixes(@n, @i+1);
+}
+
+.table > tbody > tr .bg-muted,.table > tbody > tr .bg-info{
+	color:rgba(255,255,255,0.5);
+}
+
+
+//Overwriting the margin for progress bars inside tables
+.table > tbody .progress {
+	margin-bottom: 0px;
+}
+
+.task_type_icon {
+	display: inline-block;
+	//The icons are not the same width... It's ugly in the table.
+	width: 25px;
+}
+
+.table > tbody > tr.details > td {
+	padding:0px;
+	& .content{
+		padding:0px 8px;
+		transition: height 0.4s ease;
+		overflow:hidden;
+		//TODO check this out, the height has to be fixed or the animation won't happen.
+		height:(187px*2.2)+8px;
+		@media (min-width: @screen-md-min) {
+			height:187px+8px;
+		}
+	}
+	&.off .content{
+		height: 0px;
+	}
+}

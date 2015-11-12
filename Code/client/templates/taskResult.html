@@ -1,0 +1,73 @@
+<template name="task_result">
+    {{#if state.template}}
+        <div class="col-xs-5 col-md-10 half-detail-box">
+            <p class="{{state.class}}">{{state.label}}</p>
+            <p class="big {{state.class}}">{{state.info}}</p>
+        </div>
+        <div class="col-xs-5 col-md-10 half-detail-box">
+            {{>Template.dynamic template=state.template data=this}}
+        </div>
+    {{else}}
+        <p class="{{state.class}}">{{state.label}}</p>
+        <p class="big {{state.class}}">{{state.info}}</p>
+    {{/if}}
+
+
+</template>
+
+<template name="deploy">
+    <form id="deployForm">
+    <button id="deployButton" type="submit" class="btn btn-primary">{{>icon 'upload'}} Deploy</button> to
+    <select name="deploy_to">
+        {{#each deployments}}
+            <option value="{{value}}">{{name}}</option>
+        {{/each}}
+    </select>
+    </form>
+</template>
+
+<template name="see_merge">
+    <button id="mergeButton" type="button" class="btn btn-primary">{{>icon 'cubes'}} See Merged Build</button>
+</template>
+<template name="see_issues">
+    <button id="issuesButton" type="button" class="btn btn-primary" data-toggle="modal" data-target="#issuesModal">{{>icon 'eye'}} View Issues</button>
+
+    <div class="modal fade" id="issuesModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">{{label}}'s Issues List</h4>
+                </div>
+                <div class="modal-body">
+                   <ul>
+                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                        <li>Etiam at ligula malesuada, iaculis tellus a, mollis dui.</li>
+                        <li>Integer in nunc egestas, convallis dolor ac, ultrices mi.</li>
+                        <li>Curabitur varius velit nec facilisis aliquet.</li>
+                        <li>In sed odio vitae nisi ultricies ultrices.</li>
+                        <li>Sed vitae augue vehicula, ultricies sem quis, blandit sem.</li>
+                        <li class="text-danger"><strong>Nunc non velit vel nibh efficitur dignissim.</strong></li>
+                        <li>Nunc malesuada est non tortor rutrum, nec tristique sapien tempus.</li>
+                        <li>Nulla convallis eros vitae est varius condimentum.</li>
+                        <li class="text-danger"><strong>Maecenas vel nisl in libero laoreet blandit.</strong></li>
+                        <li>Duis non tortor quis felis consequat rhoncus.</li>
+                        <li>Praesent imperdiet tortor eu neque iaculis, eget dictum nisl congue.</li>
+                        <li>Maecenas vel lectus fermentum, consectetur velit a, sodales sapien.</li>
+                        <li>Nam sollicitudin est sit amet mauris sagittis dictum.</li>
+                        <li>Nunc ut nibh eu mauris malesuada sollicitudin et et elit.</li>
+                        <li>Duis fermentum risus sed dictum tempor.</li>
+                        <li class="text-danger"><strong>Donec ut sem sed elit tincidunt congue.</strong></li>
+                        <li>Suspendisse aliquam ante sed ullamcorper venenatis.</li>
+                        <li>Quisque id risus ut sapien efficitur gravida quis euismod urna.</li>
+                        <li>Pellentesque vel ante tincidunt, congue orci sit amet, feugiat velit.</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary pull-left" title="Share">{{>icon 'share'}}</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

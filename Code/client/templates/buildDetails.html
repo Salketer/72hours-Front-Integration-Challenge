@@ -1,0 +1,9 @@
+<Template name="build_details">
+    <div class="details_box">
+        <div class="details_box_content">
+            {{#each build.branches}}
+                {{>build_branch branch=this build=../build}}
+            {{/each}}
+        </div>
+    </div>
+</Template>

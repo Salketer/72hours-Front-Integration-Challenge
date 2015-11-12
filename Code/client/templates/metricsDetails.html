@@ -1,0 +1,26 @@
+<template name="metrics_details">
+    <div class="details_box">
+        <div class="details_box_content">
+            <div class="col-xs-5 {{classes.test}}">
+                <div class="vertical-padding"><span
+                        class="big">{{metrics.test.value}} {{>icon metrics.test.trend}}</span>
+                    <br/> <span class="small">Test</span></div>
+            </div>
+            <div class="col-xs-5 {{classes.maintainability}}">
+                <div class="vertical-padding"><span
+                        class="big">{{metrics.maintainability.value}} {{>icon metrics.maintainability.trend}}</span>
+                    <br/> <span class="small" title="Maintenance">Maint.</span></div>
+            </div>
+            <div class="col-xs-5 {{classes.security}}">
+                <div class="vertical-padding"><span
+                        class="big">{{metrics.security.value}} {{>icon metrics.security.trend}}</span>
+                    <br/> <span class="small">Security</span></div>
+            </div>
+            <div class="col-xs-5 {{classes.workmanship}}">
+                <div class="vertical-padding"><span
+                        class="big">{{metrics.workmanship.value}} {{>icon metrics.workmanship.trend}}</span>
+                    <br/> <span class="small" title="Workmanship">Work.</span></div>
+            </div>
+        </div>
+    </div>
+</template>

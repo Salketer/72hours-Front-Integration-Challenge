@@ -1,0 +1,14 @@
+<Template name="test_results">
+    <div class="details_box">
+        <div class="details_box_content">
+            <div class="col-xs-5 col-md-10 {{class}} half-detail-box">
+                <span class="biggest">{{tests.completion}}%</span>
+                    <br/>Tests passed
+            </div>
+            <div class="col-xs-5 col-md-10 {{class}} half-detail-box">
+                {{>bar_graph completion=tests.completion homemade=true}}
+                {{>bar_graph completion=coverage homemade=true}}
+            </div>
+        </div>
+    </div>
+</Template>
