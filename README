@@ -1,5 +1,3 @@
-=Cross|over Senior Front End Web Developer=
-
 ==Project analysis==
 The specifications of the project are simple, yet a bit vague. It seems to be a tool to follow the steps of a Continuous Integration process, 
 so all the decisions must be taken having developers and system administrators as target users. The tool is a productivity tool, it must remain
